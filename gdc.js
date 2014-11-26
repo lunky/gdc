@@ -31,17 +31,21 @@
 
 		function Tick(){
 			var count = neighborCount();
+			console.log("count before="+count + " itsAlive=" + itsAlive);
 			switch(count){
 				case 2:
 				case 3:
+					console.log("case 3");
 					if(!itsAlive){
 						resurect();	
+					console.log("resurect");
 					}
 				break;	
 				default:
 					die();
 				break;
 			}
+			console.log("count after="+count + " itsAlive=" + itsAlive);
 		}
 
 		exports = {
@@ -60,16 +64,14 @@
 		};
 
 		function resurect(){
+			console.log("resurect");
 			itsAlive = true;
 		};	
 
 		function die(){
+			console.log("die");
 			itsAlive = false;
 		};
-
-		function setTop(value){
-			top = value;
-		}
 
 		return exports;
 	};

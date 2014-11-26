@@ -74,7 +74,9 @@
 			cell.TopLeft = true;
 			cell.TopRight = true;
 			cell.Tick();
-			assert.equal(cell.isAlive(), true);
+			var alive = cell.isAlive();
+			console.log("isAlive()=" + alive);
+			assert.equal(alive, true);
 		});
 		it('has 2 neighbors after Tick it should be alive ', function(){
 			cell.Top = true;
