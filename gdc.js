@@ -17,23 +17,22 @@
 						exports.Bottom,
 						exports.BottomLeft];
 		var neighborCount = function(){
-//console.log(neighbors);
 			var c=0;
-			for(var i=0;i<neighbors.length;i++){
-				if(neighbors[i]){
-					c+=1;
-				}
-			}
+			if(exports.Left) c+=1;
+			if(exports.TopLeft) c+=1;
+			if(exports.Top) c+=1;
+			if(exports.TopRight) c+=1;
+			if(exports.Right) c+=1;
+			if(exports.BottomRight) c+=1;
+			if(exports.Bottom) c+=1;
+			if(exports.BottomLeft) c+=1;
 			return c;
 		}
 
 		function Tick(){
 			var count = neighborCount();
-			console.log("count="+count + " itsAlive=" + itsAlive);
 			switch(count){
 				case 2:
-					// noop
-					break;
 				case 3:
 					if(!itsAlive){
 						resurect();	
@@ -43,7 +42,6 @@
 					die();
 				break;
 			}
-			console.log("count="+count + " itsAlive=" + itsAlive);
 		}
 
 		exports = {
