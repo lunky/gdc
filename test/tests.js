@@ -75,7 +75,6 @@
 			cell.TopRight = true;
 			cell.Tick();
 			var alive = cell.isAlive();
-			console.log("isAlive()=" + alive);
 			assert.equal(alive, true);
 		});
 		it('has 2 neighbors after Tick it should be alive ', function(){
@@ -108,5 +107,17 @@
 			assert.equal(cell.isAlive(), true);
 		});
 
+	});
+	describe('A realm: ', function(){
+		var realm;
+		beforeEach(function(done){
+			var Realm= require('../gdc_realm.js');	
+			realm = new Realm();
+			done();
+		});
+
+		it('can call Tick() method', function(){
+			realm.Tick();
+		});
 	});
 })();
