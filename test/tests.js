@@ -106,7 +106,6 @@
 			cell.Left = true;
 			cell.Tick();
 			assert.equal(cell.isAlive(), true);
-			
 		});
 
 	});

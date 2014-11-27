@@ -8,14 +8,26 @@
 		if(opts.dead!=null){
 			itsAlive = !opts.dead;
 		}
-		var neighbors = [exports.Left,
-						exports.TopLeft,
-						exports.Top,
-						exports.TopRight,
-						exports.Right,
-						exports.BottomRight,
-						exports.Bottom,
-						exports.BottomLeft];
+		var neighbors = [	"Left",
+							"TopLeft",
+							"Top",
+							"TopRight",
+							"Right",
+							"BottomRight",
+							"Bottom",
+							"BottomLeft"
+		];
+		var neighborCount = function(){
+			var c=0;
+			for(var i=0;i<neighbors.length;i++){
+		//		console.log("neighbors[" + i + "] = " + neighbors[i] );
+				if(exports[neighbors[i]]){
+					c+=1;
+				}
+			}
+			return c;
+		}
+/*
 		var neighborCount = function(){
 			var c=0;
 			if(exports.Left) c+=1;
@@ -28,24 +40,21 @@
 			if(exports.BottomLeft) c+=1;
 			return c;
 		}
+*/
 
 		function Tick(){
 			var count = neighborCount();
-			console.log("count before="+count + " itsAlive=" + itsAlive);
 			switch(count){
 				case 2:
 				case 3:
-					console.log("case 3");
 					if(!itsAlive){
 						resurect();	
-					console.log("resurect");
 					}
 				break;	
 				default:
 					die();
 				break;
 			}
-			console.log("count after="+count + " itsAlive=" + itsAlive);
 		}
 
 		exports = {
@@ -60,16 +69,14 @@
 			BottomLeft : false,
 			isAlive: function(){
 				return itsAlive;
-			}
+			},
 		};
 
 		function resurect(){
-			console.log("resurect");
 			itsAlive = true;
 		};	
 
 		function die(){
-			console.log("die");
 			itsAlive = false;
 		};
 
