@@ -25,7 +25,7 @@
 	describe('A Cell: ', function(){
 		var cell;
 		beforeEach(function(done){
-			var Cell= require('../gdc.js');	
+			var Cell= require('../cell.js');	
 			cell = new Cell();
 			done();
 		});
@@ -92,12 +92,12 @@
 			assert.equal(cell.isAlive(), false);
 		});
 		it('can be initialized to dead', function(){
-			var Cell= require('../gdc.js');	
+			var Cell= require('../cell.js');	
 			cell = new Cell({dead:true});
 			assert.equal(cell.isAlive(), false);
 		});
 		it('will resurect if it has 3 live neighbors', function(){
-			var Cell= require('../gdc.js');	
+			var Cell= require('../cell.js');	
 			cell = new Cell({dead:true});
 			assert.equal(cell.isAlive(), false);
 			cell.Top = true;
@@ -111,7 +111,7 @@
 	describe('A realm: ', function(){
 		var realm;
 		beforeEach(function(done){
-			var Realm= require('../gdc_realm.js');	
+			var Realm= require('../realm.js');	
 			realm = new Realm();
 			done();
 		});
@@ -119,5 +119,18 @@
 		it('can call Tick() method', function(){
 			realm.Tick();
 		});
+		it('can add cells to realm', function(){
+			var Cell = require('../cell.js');
+			var cell = new Cell();
+			realm.Add(cell);
+		});
+/*
+		it('Tick calls Tick on cells added to realm', function(){
+			var Cell = require('../cell.js');
+			var cell = new Cell();
+			realm.Add(cell);
+			assert.fail();
+		});
+		*/
 	});
 })();
