@@ -1,14 +1,17 @@
 (function(){
 	var Realm = function(){
+		var cells = [];
 		exports = {
 			Add : Add ,
 			Tick : Tick
 		};
 		function Add(cell){
-			console.log("Add");	
+			cells.push(cell);
 		};
 		function Tick(){
-			console.log("Tick");
+			for(var i=cells.length-1; i>=0; i--){
+				cells[i].Tick();
+			}
 		};
 		return exports;
 	};

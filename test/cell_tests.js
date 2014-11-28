@@ -15,6 +15,7 @@
 	assert.ifError(value)
 */
 	var assert  = require("assert");
+	var sinon = require("sinon");
 
 	// bdd style
 	describe('Test framework.', function(){
@@ -106,31 +107,5 @@
 			cell.Tick();
 			assert.equal(cell.isAlive(), true);
 		});
-
-	});
-	describe('A realm: ', function(){
-		var realm;
-		beforeEach(function(done){
-			var Realm= require('../realm.js');	
-			realm = new Realm();
-			done();
-		});
-
-		it('can call Tick() method', function(){
-			realm.Tick();
-		});
-		it('can add cells to realm', function(){
-			var Cell = require('../cell.js');
-			var cell = new Cell();
-			realm.Add(cell);
-		});
-/*
-		it('Tick calls Tick on cells added to realm', function(){
-			var Cell = require('../cell.js');
-			var cell = new Cell();
-			realm.Add(cell);
-			assert.fail();
-		});
-		*/
 	});
 })();
