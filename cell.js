@@ -27,20 +27,6 @@
 			}
 			return c;
 		}
-/*
-		var neighborCount = function(){
-			var c=0;
-			if(exports.Left) c+=1;
-			if(exports.TopLeft) c+=1;
-			if(exports.Top) c+=1;
-			if(exports.TopRight) c+=1;
-			if(exports.Right) c+=1;
-			if(exports.BottomRight) c+=1;
-			if(exports.Bottom) c+=1;
-			if(exports.BottomLeft) c+=1;
-			return c;
-		}
-*/
 
 		function Tick(){
 			var count = neighborCount();
