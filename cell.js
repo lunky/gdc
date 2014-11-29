@@ -58,6 +58,7 @@
 		}
 
 		exports = {
+			Test: Test,
 			Tick : Tick,
 			Left : false,
 			TopLeft : false,
@@ -72,6 +73,9 @@
 			},
 		};
 
+		function Test(){
+			console.log("Test() called");
+		};	
 		function resurect(){
 			itsAlive = true;
 		};	
@@ -83,5 +87,4 @@
 		return exports;
 	};
 module.exports = Cell;
-	
 })();
